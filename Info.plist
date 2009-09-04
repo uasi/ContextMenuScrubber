@@ -3,7 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CMSActionsOfUnwantedMenuItems</key>
-	<array/>
+	<array>
+		<string>addImageToiPhotoLibrary:</string>
+	</array>
 	<key>SIMBLTargetApplications</key>
 	<array>
 		<dict>
