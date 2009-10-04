@@ -10,7 +10,9 @@
 
 
 @interface CMSBundleController : NSObject {
-
+    IBOutlet NSWindowController *prefPanelController;
 }
+
++ (NSMenuItem *)menuItemForMainMenu;
 
 @end

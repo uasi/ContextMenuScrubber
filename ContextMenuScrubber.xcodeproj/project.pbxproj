@@ -3,12 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 45;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5835E843107652040097D745 /* PrefPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5835E842107652040097D745 /* PrefPanel.xib */; };
+		5835E904107669AD0097D745 /* CMSPrefPanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5835E903107669AD0097D745 /* CMSPrefPanelController.m */; };
+		5835E9D41076805A0097D745 /* CMSDraggableDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 5835E9D31076805A0097D745 /* CMSDraggableDataSource.m */; };
 		58621A9E105157530056FFD1 /* CMSBundleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58621A9D105157530056FFD1 /* CMSBundleController.m */; };
-		58621AA2105158020056FFD1 /* BrowserWebView+CMSHack.m in Sources */ = {isa = PBXBuildFile; fileRef = 58621AA1105158020056FFD1 /* BrowserWebView+CMSHack.m */; };
 		8D5B49B0048680CD000E48DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C167DFE841241C02AAC07 /* InfoPlist.strings */; };
 		8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
@@ -19,10 +21,13 @@
 		089C167FFE841241C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		32DBCF630370AF2F00C91783 /* ContextMenuScrubber_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContextMenuScrubber_Prefix.pch; sourceTree = "<group>"; };
+		5835E842107652040097D745 /* PrefPanel.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PrefPanel.xib; sourceTree = "<group>"; };
+		5835E902107669AD0097D745 /* CMSPrefPanelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMSPrefPanelController.h; sourceTree = "<group>"; };
+		5835E903107669AD0097D745 /* CMSPrefPanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMSPrefPanelController.m; sourceTree = "<group>"; };
+		5835E9D21076805A0097D745 /* CMSDraggableDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMSDraggableDataSource.h; sourceTree = "<group>"; };
+		5835E9D31076805A0097D745 /* CMSDraggableDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMSDraggableDataSource.m; sourceTree = "<group>"; };
 		58621A9C105157530056FFD1 /* CMSBundleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMSBundleController.h; sourceTree = "<group>"; };
 		58621A9D105157530056FFD1 /* CMSBundleController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMSBundleController.m; sourceTree = "<group>"; };
-		58621AA0105158020056FFD1 /* BrowserWebView+CMSHack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BrowserWebView+CMSHack.h"; sourceTree = "<group>"; };
-		58621AA1105158020056FFD1 /* BrowserWebView+CMSHack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BrowserWebView+CMSHack.m"; sourceTree = "<group>"; };
 		8D5B49B6048680CD000E48DA /* ContextMenuScrubber.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ContextMenuScrubber.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D5B49B7048680CD000E48DA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2F7E65807B2D6F200F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
@@ -66,6 +71,7 @@
 			children = (
 				8D5B49B7048680CD000E48DA /* Info.plist */,
 				089C167DFE841241C02AAC07 /* InfoPlist.strings */,
+				5835E842107652040097D745 /* PrefPanel.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -75,8 +81,10 @@
 			children = (
 				58621A9C105157530056FFD1 /* CMSBundleController.h */,
 				58621A9D105157530056FFD1 /* CMSBundleController.m */,
-				58621AA0105158020056FFD1 /* BrowserWebView+CMSHack.h */,
-				58621AA1105158020056FFD1 /* BrowserWebView+CMSHack.m */,
+				5835E902107669AD0097D745 /* CMSPrefPanelController.h */,
+				5835E903107669AD0097D745 /* CMSPrefPanelController.m */,
+				5835E9D21076805A0097D745 /* CMSDraggableDataSource.h */,
+				5835E9D31076805A0097D745 /* CMSDraggableDataSource.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -143,7 +151,7 @@
 		089C1669FE841209C02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			buildConfigurationList = 1DEB913E08733D840010E9CD /* Build configuration list for PBXProject "ContextMenuScrubber" */;
-			compatibilityVersion = "Xcode 3.1";
+			compatibilityVersion = "Xcode 3.2";
 			hasScannedForEncodings = 1;
 			mainGroup = 089C166AFE841209C02AAC07 /* ContextMenuScrubber */;
 			projectDirPath = "";
@@ -160,6 +168,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D5B49B0048680CD000E48DA /* InfoPlist.strings in Resources */,
+				5835E843107652040097D745 /* PrefPanel.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,7 +197,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				58621A9E105157530056FFD1 /* CMSBundleController.m in Sources */,
-				58621AA2105158020056FFD1 /* BrowserWebView+CMSHack.m in Sources */,
+				5835E904107669AD0097D745 /* CMSPrefPanelController.m in Sources */,
+				5835E9D41076805A0097D745 /* CMSDraggableDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,26 +253,28 @@
 		1DEB913F08733D840010E9CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
-				SDKROOT = macosx10.5;
+				SDKROOT = macosx10.6;
 			};
 			name = Debug;
 		};
 		1DEB914008733D840010E9CD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				PREBINDING = NO;
-				SDKROOT = macosx10.5;
+				SDKROOT = macosx10.6;
 			};
 			name = Release;
 		};
