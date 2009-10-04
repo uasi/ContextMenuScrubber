@@ -29,8 +29,29 @@
 - (void)awakeFromNib
 {
     NSArray *types = [NSArray arrayWithObject:NSPasteboardTypeString];
-    [itemTable registerForDraggedTypes:types];
+    [hiddenItemTable setDropRow:-1 dropOperation:NSTableViewDropOn];
     [hiddenItemTable registerForDraggedTypes:types];
+    
+    // Add empty string to show placeholder text prompting to right-click
+    [itemArrayController addObject:@""];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [hiddenItemArrayController addObjects:[defaults arrayForKey:@"CMSHiddenItems"]];
+}
+
+- (void)showWindow:(id)sender
+{
+    [itemArrayController setSelectionIndexes:[NSIndexSet indexSet]];
+    [hiddenItemArrayController setSelectionIndexes:[NSIndexSet indexSet]];
+    [super showWindow:sender];
+}
+
+- (void)keyDown:(NSEvent *)event
+{
+    // On delete key pressed
+    if ([event keyCode] == 51) {
+        [hiddenItemArrayController removeObjectsAtArrangedObjectIndexes:[hiddenItemArrayController selectionIndexes]];
+    }
 }
 
 @end

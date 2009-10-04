@@ -10,6 +10,8 @@
 		5835E843107652040097D745 /* PrefPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5835E842107652040097D745 /* PrefPanel.xib */; };
 		5835E904107669AD0097D745 /* CMSPrefPanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5835E903107669AD0097D745 /* CMSPrefPanelController.m */; };
 		5835E9D41076805A0097D745 /* CMSDraggableDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 5835E9D31076805A0097D745 /* CMSDraggableDataSource.m */; };
+		5835EA5E1078B3D10097D745 /* CMSMenuItemTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 5835EA5D1078B3D10097D745 /* CMSMenuItemTableViewDataSource.m */; };
+		5835ECD91078F1190097D745 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5835ECD71078F1190097D745 /* Localizable.strings */; };
 		58621A9E105157530056FFD1 /* CMSBundleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 58621A9D105157530056FFD1 /* CMSBundleController.m */; };
 		8D5B49B0048680CD000E48DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C167DFE841241C02AAC07 /* InfoPlist.strings */; };
 		8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
@@ -26,6 +28,9 @@
 		5835E903107669AD0097D745 /* CMSPrefPanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMSPrefPanelController.m; sourceTree = "<group>"; };
 		5835E9D21076805A0097D745 /* CMSDraggableDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMSDraggableDataSource.h; sourceTree = "<group>"; };
 		5835E9D31076805A0097D745 /* CMSDraggableDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMSDraggableDataSource.m; sourceTree = "<group>"; };
+		5835EA5C1078B3D10097D745 /* CMSMenuItemTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMSMenuItemTableViewDataSource.h; sourceTree = "<group>"; };
+		5835EA5D1078B3D10097D745 /* CMSMenuItemTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMSMenuItemTableViewDataSource.m; sourceTree = "<group>"; };
+		5835ECD81078F1190097D745 /* ja_JP */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = ja_JP; path = ja_JP.lproj/Localizable.strings; sourceTree = "<group>"; };
 		58621A9C105157530056FFD1 /* CMSBundleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMSBundleController.h; sourceTree = "<group>"; };
 		58621A9D105157530056FFD1 /* CMSBundleController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMSBundleController.m; sourceTree = "<group>"; };
 		8D5B49B6048680CD000E48DA /* ContextMenuScrubber.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ContextMenuScrubber.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,6 +76,7 @@
 			children = (
 				8D5B49B7048680CD000E48DA /* Info.plist */,
 				089C167DFE841241C02AAC07 /* InfoPlist.strings */,
+				5835ECD71078F1190097D745 /* Localizable.strings */,
 				5835E842107652040097D745 /* PrefPanel.xib */,
 			);
 			name = Resources;
@@ -85,6 +91,8 @@
 				5835E903107669AD0097D745 /* CMSPrefPanelController.m */,
 				5835E9D21076805A0097D745 /* CMSDraggableDataSource.h */,
 				5835E9D31076805A0097D745 /* CMSDraggableDataSource.m */,
+				5835EA5C1078B3D10097D745 /* CMSMenuItemTableViewDataSource.h */,
+				5835EA5D1078B3D10097D745 /* CMSMenuItemTableViewDataSource.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -153,6 +161,13 @@
 			buildConfigurationList = 1DEB913E08733D840010E9CD /* Build configuration list for PBXProject "ContextMenuScrubber" */;
 			compatibilityVersion = "Xcode 3.2";
 			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+				ja_JP,
+			);
 			mainGroup = 089C166AFE841209C02AAC07 /* ContextMenuScrubber */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -169,6 +184,7 @@
 			files = (
 				8D5B49B0048680CD000E48DA /* InfoPlist.strings in Resources */,
 				5835E843107652040097D745 /* PrefPanel.xib in Resources */,
+				5835ECD91078F1190097D745 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,6 +215,7 @@
 				58621A9E105157530056FFD1 /* CMSBundleController.m in Sources */,
 				5835E904107669AD0097D745 /* CMSPrefPanelController.m in Sources */,
 				5835E9D41076805A0097D745 /* CMSDraggableDataSource.m in Sources */,
+				5835EA5E1078B3D10097D745 /* CMSMenuItemTableViewDataSource.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,6 +228,14 @@
 				089C167EFE841241C02AAC07 /* English */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		5835ECD71078F1190097D745 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5835ECD81078F1190097D745 /* ja_JP */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

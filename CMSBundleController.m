@@ -13,6 +13,12 @@
 #import "CMSPrefPanelController.h"
 
 
+@interface NSObject (ContextMenuScrubberPrivateMethods)
+- (NSArray *)cms_webView:(WebView *)sender
+contextMenuItemsForElement:(NSDictionary *)element
+        defaultMenuItems:(NSArray *)defaultMenuItems;
+@end
+
 id cms_webView_contextMenuItemsForElement_defaultItems(id self,
                                                        SEL _cmd,
                                                        WebView *sender,
@@ -23,12 +29,16 @@ id cms_webView_contextMenuItemsForElement_defaultItems(id self,
                 contextMenuItemsForElement:element
                           defaultMenuItems:defaultMenuItems];
     NSMutableArray *newMenuItems = [NSMutableArray array];
-    [[[CMSPrefPanelController sharedController] itemArrayController] prepareContent];
+    [[[[CMSPrefPanelController sharedController] itemArrayController] content] removeAllObjects];
     for (NSMenuItem *item in menuItems) {
-        if (item == [NSMenuItem separatorItem]) { continue; }
-        [[[CMSPrefPanelController sharedController] itemArrayController] addObject:[item title]];
-        // TODO: remove items
-        [newMenuItems addObject:item];
+        NSString *title = [item title];
+        if ([title isEqualToString:@""]) {
+            continue;
+        }
+        [[[CMSPrefPanelController sharedController] itemArrayController] addObject:title];
+        if (![[[[CMSPrefPanelController sharedController] hiddenItemArrayController] content] containsObject:title]) {
+            [newMenuItems addObject:item];
+        }
     }
     return newMenuItems;
 }
@@ -47,7 +57,15 @@ id cms_webView_contextMenuItemsForElement_defaultItems(id self,
     Method alt = class_getInstanceMethod(cls, @selector(cms_webView:contextMenuItemsForElement:defaultMenuItems:));
     method_exchangeImplementations(orig, alt);
     
-    [[NSApp mainMenu] addItem:[[self class] menuItemForMainMenu]];
+    NSMenu *safariMenu = [[[NSApp mainMenu] itemAtIndex:0] submenu];
+    // Insert menu item next to "Preferences..."
+    for (NSUInteger i = 0; i < [[safariMenu itemArray] count]; i++) {
+        if ([[safariMenu itemAtIndex:i] isSeparatorItem]) {
+            [safariMenu insertItem:[[self class] menuItemForMainMenu]
+                           atIndex:(i + 2)];
+            break;
+        }
+    }
     
     NSLog(@"ContextMenuScrubber loaded");
 }
@@ -55,19 +73,16 @@ id cms_webView_contextMenuItemsForElement_defaultItems(id self,
 
 + (NSMenuItem *)menuItemForMainMenu
 {
-    NSMenu *submenu = [[NSMenu alloc] initWithTitle:@"CMS"];
-    [submenu autorelease];
-    [submenu addItemWithTitle:@"Preferences..."
-                       action:@selector(showWindow:)
-                keyEquivalent:@""];
-    [[submenu itemAtIndex:0]
-     setTarget:[CMSPrefPanelController sharedController]];
-    NSMenuItem *item = [[NSMenuItem alloc] initWithTitle:@"CMS"
-                                                  action:NULL
+    NSString *title = NSLocalizedStringFromTableInBundle(@"Edit context menu...",
+                                                         @"",
+                                                         [NSBundle mainBundle],
+                                                         @"");
+    NSMenuItem *item = [[NSMenuItem alloc] initWithTitle:title
+                                                  action:@selector(showWindow:)
                                            keyEquivalent:@""];
     [item autorelease];
-    [item setSubmenu:submenu];
-    return item;
+    [item setTarget:[CMSPrefPanelController sharedController]];
+     return item;
 }
 
 @end

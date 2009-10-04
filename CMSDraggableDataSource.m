@@ -11,41 +11,35 @@
 
 @implementation CMSDraggableDataSource
 
-- (NSInteger)numberOfRowsInTableView:(NSTableView *)aTableView
-{
-    return [[arrayController content] count];
-}
-
-- (id)tableView:(NSTableView *)aTableView
-objectValueForTableColumn:(NSTableColumn *)aTableColumn
-            row:(NSInteger)rowIndex
-{
-    return [[arrayController content] objectAtIndex:rowIndex];
-}
-
 - (BOOL)tableView:(NSTableView *)aTableView
        acceptDrop:(id <NSDraggingInfo>)info
               row:(NSInteger)row
     dropOperation:(NSTableViewDropOperation)operation
 {
-    NSArray *pboardItems = [[info draggingPasteboard] pasteboardItems];
-    for (NSPasteboardItem *item in pboardItems) {
-        [arrayController addObject:[item stringForType:NSPasteboardTypeString]];
+    NSArray *items = [[info draggingPasteboard] pasteboardItems];
+    for (NSPasteboardItem *item in items) {
+        NSString *s = [item stringForType:NSPasteboardTypeString];
+        if (![[arrayController content] containsObject:s]) {
+            [arrayController addObject:s];
+        }
     }
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:[arrayController content] forKey:@"CMSHiddenItems"];
     return YES;
+}
+
+- (NSDragOperation)tableView:(NSTableView *)aTableView validateDrop:(id < NSDraggingInfo >)info proposedRow:(NSInteger)row proposedDropOperation:(NSTableViewDropOperation)operation
+{
+    return NSDragOperationCopy;
 }
 
 - (BOOL)tableView:(NSTableView *)aTableView
 writeRowsWithIndexes:(NSIndexSet *)rowIndexes
      toPasteboard:(NSPasteboard *)pboard
 {
-    NSMutableArray *pboardItems = [NSMutableArray array];
-    for (NSString *s in [[arrayController content] objectsAtIndexes:rowIndexes]) {
-        NSPasteboardItem *item = [[[NSPasteboardItem alloc] init] autorelease];
-        [item setString:s forType:NSPasteboardTypeString];
-        [pboardItems addObject:item];
-    }
-    return [pboard writeObjects:pboardItems];
+    NSArray *texts = [[arrayController content] objectsAtIndexes:rowIndexes];
+    [pboard writeObjects:texts];
+    return YES;
 }
 
 @end
